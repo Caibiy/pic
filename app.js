@@ -3,7 +3,7 @@ const app = express()
 const path = require('path')
 const bodyParser = require('body-parser')
 const { exec } = require('child_process')
-const port = 8080
+const port = 8001
 
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -21,7 +21,7 @@ app.post('/api/pic',(req,res)=>{
 		res.json({"err":err})
 	}
 	var re2Json=eval('('+stdout+')'); 
-        console.log(re2Json)	
+        console.log(re2Json["piclists"].split(","))	
        res.json({"data":re2Json["piclists"].split(",")})
    })    
 })

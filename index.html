@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf8"/>
         <title>智能小车图片查看页面|Raspberry Smart car</title>
-	<link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap-grid.min.css" rel="stylesheet">
-    	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<link href="./bootstrap.min.css" rel="stylesheet"/>
+    	<script src="./jquery.js"></script>
     </head>
     <body>
 	    <div class="container">
@@ -17,18 +17,12 @@
                         type:"post",
                         url:"/api/pic",
                         success:(res)=>{
-                            if(res.err){
-                                alert(res.err)
-                            }
-			    var picList=res.data;
-			    var str="";
-			   alert(picList[0])
-                           for(var i=0;picList.length;i++){
-				    str+="<img src=\""+picList[i]+"\" /><br>"
-			    
-                              }
-			    alert(str)
-                        }
+                              var data=res.data;
+				var str="";
+				for(var i=0;i<data.length;i++){
+				 str+="<img src=\""+data[i]+"\" ><br>";}
+				$(".container").append(str)                           
+                       }
                     })
                  })	   
        </script>
