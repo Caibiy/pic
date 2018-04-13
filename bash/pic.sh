@@ -1,6 +1,8 @@
 #!/bin/bash
 piclist=`ls ~/camera/`
 pic_list=""
+rm -rf ../camera
+cp -r ~/camera ../
 for pic in $piclist
 do
 	pic_list="$pic,$pic_list"
